@@ -1,54 +1,53 @@
-using System;
+using System; <br><br>
 
-using System.Collections.Generic;
+using System.Collections.Generic;<br><br>
 
-using System.ComponentModel;
+using System.ComponentModel;<br><br>
 
-using System.Data;
+using System.Data;<br><br>
 
-using System.Drawing;
+using System.Drawing;<br><br>
 
-using System.Text;
+using System.Text;<br><br>
 
-using System.Windows.Forms;
+using System.Windows.Forms;<br><br>
 
-using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;<br><br>
+<br><br>
+namespace WinFormsApp3<br><br>
+{<br><br>
+    public partial class Form1 : Form<br><br>
+    {<br><br>
+        public Form1()<br><br>
+        {<br><br>
+            InitializeComponent();<br><br>
+        }<br><br>
 
-namespace WinFormsApp3
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void Login_Click(object sender, EventArgs e)
-        {
+        private void Login_Click(object sender, EventArgs e)<br><br>
+        {<br><br>
 
 
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=csharp;";
-            string query = "INSERT INTO users(`username`, `email`, `password`) VALUES ('" + textBox4.Text + "', '" + textBox3.Text + "', '" + textBox2.Text + "')";
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=csharp;";<br><br>
+            string query = "INSERT INTO users(`username`, `email`, `password`) VALUES ('" + textBox4.Text + "', '" + textBox3.Text + "', '" + textBox2.Text + "')";<br><br>
 
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);<br><br>
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);<br><br>
+            commandDatabase.CommandTimeout = 60;<br><br>
 
-            try
-            {
-                databaseConnection.Open();
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+            try<br><br>
+            {<br><br>
+                databaseConnection.Open();<br><br>
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();<br><br>
 
-                MessageBox.Show("User succesfully registered");
+                MessageBox.Show("User succesfully registered");<br><br>
 
-                databaseConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                // Show any error message.
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-    }
-}
+                databaseConnection.Close();<br><br>
+            }<br><br>
+            catch (Exception ex)<br><br>
+            {<br><br>
+                // Show any error message.<br><br>
+                MessageBox.Show(ex.Message);<br><br>
+            }<br><br>
+        }<br><br>
+    }<br><br>
+}<br><br>
