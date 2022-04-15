@@ -1,0 +1,54 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.ComponentModel;
+
+using System.Data;
+
+using System.Drawing;
+
+using System.Text;
+
+using System.Windows.Forms;
+
+using MySql.Data.MySqlClient;
+
+namespace WinFormsApp3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+
+
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=csharp;";
+            string query = "INSERT INTO users(`username`, `email`, `password`) VALUES ('" + textBox4.Text + "', '" + textBox3.Text + "', '" + textBox2.Text + "')";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+
+            try
+            {
+                databaseConnection.Open();
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                MessageBox.Show("User succesfully registered");
+
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+    }
+}
