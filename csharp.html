@@ -28,7 +28,9 @@ namespace WinFormsApp3<br><br>
 
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=csharp;";<br><br>
-            string query = "INSERT INTO users(`username`, `email`, `password`) VALUES ('" + textBox4.Text + "', '" + textBox3.Text + "', '" + textBox2.Text + "')";<br><br>
+            //for inserting string query = "INSERT INTO library(`book_id`, `book_title`, `author`) VALUES ('" + textBox4.Text + "', '" + textBox3.Text + "', '" + textBox2.Text + "')";<br><br>
+            //for updating string query = "UPDATE library SET book_id='"+ textBox4.Text +"',book_title='"+ textBox3.Text + "',author='" + textBox2.Text + "' WHERE id=1";<br><br>
+            //for Delete  string query = "DELETE FROM library WHERE id=1";<br><br>
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);<br><br>
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);<br><br>
